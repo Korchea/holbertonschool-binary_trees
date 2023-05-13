@@ -16,7 +16,6 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
     add = malloc(sizeof(binary_tree_t));
     if (add == NULL || !value || !parent)
     {
-        fprintf(stderr, "Error: node can't be created\n");
         return (NULL);
     }
     add->n = value;
