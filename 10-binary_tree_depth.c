@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_deptht - 'calculate the depth of a given tree'
+ * binary_tree_depth - 'calculate the depth of a given tree'
  * @tree: Is a pointer to the root node of a tree
  * Return: depth from the root to a node given
  */
@@ -9,14 +9,18 @@
 size_t binary_tree_depth(const binary_tree_t *tree)
 {
 	if (tree == NULL)
-		return -1;
+		return (-1);
 	else
 	{
+
 		int left_depth = binary_tree_depth(tree->left);
 		int right_depth = binary_tree_depth(tree->right);
+
+		if (binary_tree_is_root(tree) == 1)
+			return (0);
 		if (left_depth > right_depth)
-			return left_depth + 1;
+			return (left_depth + 1);
 		else
-			return right_depth + 1;
+			return (right_depth + 1);
 	}
 }
