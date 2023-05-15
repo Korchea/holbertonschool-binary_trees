@@ -8,17 +8,16 @@
 
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-    int left_full = 1, right_full = 1;
+	size_t height, i;
+	size_t nodes;
 
-    if (tree == NULL)
-        return (0);
-    if (tree->left == NULL && tree->right == NULL)
-        return (1);
-    if (tree->left == NULL && tree->right != NULL)
-        return (0);
-    if (tree->left != NULL && tree->right == NULL)
-        return (0);
-    left_full = binary_tree_is_full(tree->left);
-    right_full = binary_tree_is_full(tree->right);
-    
+	if (tree == NULL)
+		return (0);
+	height = binary_tree_height(tree);
+	nodes = 1;
+
+	for (i = 0; i < height; i++)
+		nodes *= 2;
+
+	return (nodes - 1 == binary_tree_size(tree));
 }
