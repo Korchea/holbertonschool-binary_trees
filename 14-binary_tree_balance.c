@@ -7,9 +7,6 @@
  */
 
 int binary_tree_balance(const binary_tree_t *tree)
-To calculate the balance factor for a binary tree that may or may not be perfect, you can modify the binary_tree_balance() function to return both the height and balance factor of each subtree. Here is an implementation that you can use:
-
-int binary_tree_balance(const binary_tree_t *tree)
 {
 	int left_height = 0, right_height = 0, balance_factor = 0;
 
