@@ -12,15 +12,18 @@ int binary_tree_balance(const binary_tree_t *tree)
 
 	if (tree == NULL)
 		return (0);
-	if (tree->left != NULL)
+	else
 	{
-		left_balance = binary_tree_balance(tree->left);
-		left_balance++;
+		if (tree->left != NULL)
+		{
+			left_balance = binary_tree_balance(tree->left);
+			left_balance++;
+		}
+		if (tree->right != NULL)
+		{
+			right_balance = binary_tree_balance(tree->right);
+			right_balance++;
+		}
+		return (left_balance - right_balance);
 	}
-	if (tree->right != NULL)
-	{
-		right_balance = binary_tree_balance(tree->right);
-		right_balance++;
-	}
-	return (left_balance - right_balance);
 }
